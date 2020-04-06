@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Dictionary</string>
+    <string name="term">Term</string>
+    <string name="error">Something wrong happen, please try again.</string>
+    <string name="definition">Definition</string>
+    <string name="search_hint">Search</string>
+    <string name="words_not_found">No Words are found, Type to search </string>
+    <string name="check_internet">Please Check Internet connection</string>
+    <string name="dictionary_app_name">Dictionary</string>
+    <string name="dictionary_example_text">example : %1$s</string>
+    <string name="dictionary_author_text">- %1$s</string>
+
+</resources>
