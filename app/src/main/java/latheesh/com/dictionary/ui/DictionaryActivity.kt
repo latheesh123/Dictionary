@@ -73,8 +73,8 @@ class DictionaryActivity :
     private fun initializeObservers() {
 
         //observe viewmodel on loading
-        dictionaryViewModel.let {
-            it?.isLoading()?.observe(this,
+        dictionaryViewModel?.let {
+            it.isLoading().observe(this,
                 Observer<Boolean> { loading ->
                     dictionary_progressbar_view.visibility =
                         if (loading) View.VISIBLE else View.GONE
@@ -83,10 +83,8 @@ class DictionaryActivity :
                         dictionary_no_word_text.visibility = View.GONE
                     }
                 })
-        }
 
-        dictionaryViewModel.let {
-            it?.isError()?.observe(this,
+            it.isError().observe(this,
                 Observer<Boolean> { isError ->
                     if (isError) {
                         dictionary_no_word_text.visibility = View.GONE
@@ -95,10 +93,7 @@ class DictionaryActivity :
                     }
                 })
 
-        }
-
-        dictionaryViewModel.let {
-            it?.getDictionaryItems()?.observe(this,
+            it.getDictionaryItems().observe(this,
                 Observer<ArrayList<ResultData>> { resultData ->
                     dictionary_no_word_text.visibility =
                         if (resultData.isEmpty()) View.VISIBLE else View.GONE
@@ -133,9 +128,7 @@ class DictionaryActivity :
 
     //Text changed listener(calls Api)
     override fun afterTextChanged(editable: Editable?) {
-        dictionaryViewModel.let {
-            it?.fetchDictionaryTerms(editable.toString())
-        }
+        dictionaryViewModel?.fetchDictionaryTerms(editable.toString())
     }
 
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

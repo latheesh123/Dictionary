@@ -43,14 +43,20 @@ class DictionaryAdapter : RecyclerView.Adapter<DictionaryAdapter.ViewHolder>() {
         RecyclerView.ViewHolder(itemView) {
 
         fun bindItem(item: ResultData) {
-            itemView.item_word_textView.text = item.word
-            itemView.item_definition_textView.text = item.definition
-            itemView.item_thumbsDown_textView.text = item.thumbDown.toString()
-            itemView.item_thumbsUp_textView.text = item.thumbUp.toString()
-            itemView.item_author_textView.text =
-                itemView.context.getString(R.string.dictionary_author_text, item.author)
-            itemView.item_example_textView.text =
-                itemView.context.getString(R.string.dictionary_example_text, item.example)
+            itemView.apply {
+                item.let {
+                    item_word_textView.text = it.word
+                    item_definition_textView.text = it.definition
+                    item_thumbsDown_textView.text = it.thumbDown.toString()
+                    item_thumbsUp_textView.text = it.thumbUp.toString()
+                    item_author_textView.text =
+                        context.getString(R.string.dictionary_author_text, it.author)
+                    item_example_textView.text =
+                        context.getString(R.string.dictionary_example_text, it.example)
+
+                }
+
+            }
 
         }
     }
